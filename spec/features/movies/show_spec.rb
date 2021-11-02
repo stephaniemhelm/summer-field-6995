@@ -37,6 +37,7 @@ RSpec.describe Movie do
     visit "/movies/#{shrek.id}"
 
     expect(page).to_not have_content(ford.name)
+    fill_in :actor_id, with: ford.id
     click_button 'Add Actor'
     expect(page).to have_content(ford.name)
 
