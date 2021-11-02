@@ -4,7 +4,11 @@ class MovieActorsController < ApplicationController
 
   def create
     MovieActor.create(movie_id: params[:id], actor_id: params[:actor_id])
-    #require "pry"; binding.pry
     redirect_to "/movies/#{params[:id]}"
   end
+
+  def show
+    @costars = MovieActor.find_by(movie_id: params[:id], actor_id: params[:actor_id])
+  end
+
 end
